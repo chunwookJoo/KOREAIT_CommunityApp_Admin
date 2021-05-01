@@ -1,0 +1,14 @@
+.submit {
+	all: unset;
+	background-color: #335d63;
+	color: #fff;
+	border: 0;
+	border-radius: 5px;
+	padding: 6px 8px;
+	font-size: 16px;
+	box-shadow: 0px 2px 1px #000;
+	cursor: pointer;
+}
+.submit:active {
+	transform: scale(0.95);
+}

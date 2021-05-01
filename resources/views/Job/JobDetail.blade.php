@@ -1,0 +1,20 @@
+@extends('layouts.BottomNavigation')
+@extends('layouts.MenuTitle')
+@section('content')
+	<body>
+		@section('menu-title')
+		@endsection
+		<!--공고 제목-->
+        <h1>{{$response['title']}}</h1>
+        <!--회사명-->
+        <h4>{{$response['co_name']}}</h4>
+        <!--직원수-->
+        <h4>{{$response['co_persons']}}</h4>
+        <!--작성자-->
+        <h4>{{$response['name']}}</h4>
+        <!--공고내용-->
+        <h4>{{$response['co_intro']}}</h4>
+        <!--모집직종-->
+        <h4>{{$response['incrute_kind']}}</h4>
+	</body>
+@endsection 
