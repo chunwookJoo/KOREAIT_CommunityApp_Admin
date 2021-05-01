@@ -5,7 +5,7 @@
 ## Working
 -   [x] Login
 -   [x] Cookie
--   [x] Semester Score ![90%](https://progress-bar.dev/20)
+-   [x] Semester Score ![90%](https://progress-bar.dev/90)
 -   [x] Notice
     - Get Api
     - Create a bulletin board
