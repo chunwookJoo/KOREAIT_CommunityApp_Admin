@@ -6,6 +6,12 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" type="text/css" href="/admin/notify.css">
 	<link rel="stylesheet" type="text/css" href="/admin/css/element.css">
+	<link rel="stylesheet" type="text/css" href="/admin/css/theme.default.css">
+
+	<script src="{{asset('admin/js/AdminPage/jquery-1.2.6.min.js')}}"></script>
+    <script src="{{asset('admin/js/AdminPage/jquery.tablesorter.min.js')}}"></script>
+    <script src="{{asset('admin/js/AdminPage/jquery.tablesorter.widgets.min.js')}}"></script>
+
 	<title>알림 전송</title>
 	<script>
 		var msg = '{{ Session::get('alert') }}';
@@ -15,7 +21,6 @@
 		}
 	</script>
 </head>
-
 <body>
 	<h2>
 		<span>
@@ -71,15 +76,47 @@
 			@csrf
 			<div class="flex-row">
 				<div class="flex-col flex-al-end flex-ju-between">
-					<select name="notification[]" id="notification[]" class="notification w-300 h-400" multiple>
+					<table class="tablesorter">
+						<thead>
+						  <tr>
+							<th>학번</th>
+							<th>이름</th>
+							<th>앱 설치 유/무</th>
+						  </tr>
+						</thead>
+						<tbody>
+						  <tr>
+							<td>20070001</td>
+							<td>김길동</td>
+							<td>유</td>
+						  </tr>
+						  <tr>
+							<td>20070002</td>
+							<td>홍길동</td>
+							<td>유</td>
+						  </tr>
+						  <tr>
+							<td>20070003</td>
+							<td>박길동</td>
+							<td>무</td>
+						  </tr>
+						  <tr>
+							<td>20070004</td>
+							<td>이길동</td>
+							<td>무</td>
+						  </tr>
+						</tbody>
+					  </table>
+					{{-- <select name="notification[]" id="notification[]" class="notification w-300 h-400" multiple>
 						@if ($result_firebase)
 						@foreach ($result_firebase as $item)
+
 						<option class="keys" id="n_{{ $item->user_id }}" value="{{ $item->firebase_key }}">
 							{{ $item->user_id }} | {{ $item->user_name }}
 						</option>
 						@endforeach
 						@endif
-					</select>
+					</select> --}}
 					<div class="flex-row">
 						<div class="h-5"></div>
 						<div id="counts"></div>
@@ -105,6 +142,18 @@
 		</form>
 	</section>
 	<div class="h-10"></div>
+	{{-- tablesort 코드 --}}
+	<script>
+		$(function () {
+		  $(".tablesorter").tablesorter({
+			widgets: ["zebra", "columns"],
+			usNumberFormat: false,
+			sortReset: true,
+			sortRestart: true,
+		  });
+		});
+	  </script>
+
 	{{-- ※ Ctrl 키를 누르고 클릭하여 복수 선택/취소 가능 --}}
 	<script>
 		document.querySelector('#college').onchange = () => {
@@ -171,6 +220,7 @@
 		document.querySelector('#college').onchange();
 		document.querySelector('#select_all').onclick();
 	</script>
+
 </body>
 
 </html>
